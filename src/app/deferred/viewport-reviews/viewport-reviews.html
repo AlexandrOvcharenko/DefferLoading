@@ -1,0 +1,10 @@
+<section class="payload-card" aria-label="Viewport reviews loaded">
+  <span class="payload-card__badge">loaded via viewport</span>
+  <h4>Customer reviews</h4>
+  @for (review of reviews; track review.name) {
+    <blockquote>
+      <strong>{{ review.name }} · {{ review.score }}/5</strong>
+      <p>{{ review.text }}</p>
+    </blockquote>
+  }
+</section>

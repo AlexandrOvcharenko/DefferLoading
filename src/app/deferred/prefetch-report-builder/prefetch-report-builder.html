@@ -1,0 +1,9 @@
+<section class="payload-card payload-card--wide" aria-label="Prefetch report builder loaded">
+  <span class="payload-card__badge">prefetched before display</span>
+  <h4>Report builder</h4>
+  <div class="metric-grid">
+    @for (metric of metrics; track metric) {
+      <span>{{ metric }}</span>
+    }
+  </div>
+</section>

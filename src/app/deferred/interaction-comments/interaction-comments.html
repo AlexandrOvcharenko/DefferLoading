@@ -1,0 +1,9 @@
+<section class="payload-card" aria-label="Interaction comments loaded">
+  <span class="payload-card__badge">loaded via interaction</span>
+  <h4>Comments thread</h4>
+  <ul>
+    @for (comment of comments; track comment) {
+      <li>{{ comment }}</li>
+    }
+  </ul>
+</section>

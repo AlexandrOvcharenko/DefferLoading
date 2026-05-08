@@ -1,0 +1,9 @@
+<section class="payload-card" aria-label="Idle recommendations loaded">
+  <span class="payload-card__badge">loaded via idle</span>
+  <h4>Recommended articles</h4>
+  <ul>
+    @for (article of articles; track article) {
+      <li>{{ article }}</li>
+    }
+  </ul>
+</section>

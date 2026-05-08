@@ -1,59 +1,77 @@
-# DeferredLoading
+# Angular Deferred Loading Lab
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
+This is a learning project for practicing Angular deferred loading with `@defer`.
 
-## Development server
+The app is intentionally built as a small sandbox: each card demonstrates one deferred loading
+scenario, so you can open DevTools, watch Network requests, and see when Angular loads each lazy
+chunk.
 
-To start a local development server, run:
+## What This Project Demonstrates
 
-```bash
-ng serve
+- **Idle loading**: loads a recommendations block when the browser becomes idle.
+- **Interaction loading**: loads comments after the user clicks or uses the keyboard on a trigger.
+- **Hover loading**: loads a profile preview when the user hovers over the trigger.
+- **Timer loading**: loads a promo block after a fixed delay.
+- **Conditional loading with `when`**: loads admin tools when a signal becomes `true`.
+- **Prefetching**: prefetches the report builder on idle, then displays it after interaction.
+- **Viewport loading**: loads customer reviews when the user scrolls to that section.
+
+Each deferred payload is a standalone component under:
+
+```text
+src/app/deferred/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The main examples are wired in:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```text
+src/app/app.html
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Development
+
+For regular UI development, run:
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+Then open:
 
-To build the project run:
+```text
+http://localhost:4200/
+```
+
+This is the fastest way to edit the UI, but `ng serve` uses development tooling that can affect how
+deferred chunks appear in Network.
+
+## Verifying Deferred Loading
+
+To verify real lazy chunk behavior, use a production build:
 
 ```bash
-ng build
+npm run build
+npx http-server dist/deferred-loading/browser -p 4201
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Then open:
 
-## Running unit tests
+```text
+http://localhost:4201/
+```
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Use DevTools Network with cache disabled and interact with each card. You should see separate lazy
+chunks load for the deferred payload components.
+
+## Tests
+
+Run unit tests with:
 
 ```bash
-ng test
+npm test -- --watch=false
 ```
 
-## Running end-to-end tests
+## Useful Angular Docs
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- [Deferred loading with `@defer`](https://angular.dev/guide/templates/defer)
+- [Angular CLI](https://angular.dev/tools/cli)

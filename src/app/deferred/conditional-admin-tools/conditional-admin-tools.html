@@ -1,0 +1,9 @@
+<section class="payload-card" aria-label="Conditional admin tools loaded">
+  <span class="payload-card__badge">loaded via when</span>
+  <h4>Admin tools</h4>
+  <ul>
+    @for (tool of tools; track tool) {
+      <li>{{ tool }}</li>
+    }
+  </ul>
+</section>

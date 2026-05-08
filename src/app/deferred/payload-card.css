@@ -1,0 +1,72 @@
+.payload-card {
+  display: grid;
+  gap: 12px;
+  min-height: 160px;
+  padding: 18px;
+  border: 1px solid #bdd8c9;
+  border-radius: 8px;
+  background: #f2fbf6;
+}
+
+.payload-card__badge {
+  width: fit-content;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #1f5f43;
+  background: #c9f0da;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+h4,
+p,
+ul,
+blockquote {
+  margin: 0;
+}
+
+h4 {
+  color: #172033;
+  font-size: 1rem;
+}
+
+p,
+li {
+  color: #41516a;
+  line-height: 1.55;
+}
+
+ul {
+  display: grid;
+  gap: 8px;
+  padding-left: 20px;
+}
+
+blockquote {
+  display: grid;
+  gap: 6px;
+  padding-left: 12px;
+  border-left: 3px solid #55b97f;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.metric-grid span {
+  padding: 14px;
+  border: 1px solid #bdd8c9;
+  border-radius: 6px;
+  color: #1f5f43;
+  background: #ffffff;
+  font-weight: 800;
+  text-align: center;
+}
+
+@media (max-width: 680px) {
+  .metric-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
